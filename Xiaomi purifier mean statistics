@@ -1,3 +1,12 @@
+Mean values look like this:
+https://imgur.com/a/But02It
+
+Some information here:
+https://www.reddit.com/r/homeassistant/comments/8w39wq/fetch_sensor_data_from_xiaomi_air_purifier_2/e1tnetd
+
+
+
+  
   - platform: template
     sensors:
                                   #Here I measure the raw readings that statistics can read

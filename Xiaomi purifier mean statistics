@@ -1,0 +1,19 @@
+  - platform: template
+    sensors:
+                                  #Here I measure the raw readings that statistics can read
+      mikon_huone_pm25_raw:
+        friendly_name: "Mikon Huone raw"
+        unit_of_measurement: 'PM 2.5'
+        value_template: '{{ states.fan.mikon_purifier.attributes.aqi }}'
+        
+                                  #This is the final value I use
+      mikon_huone_pm25_mean:
+        friendly_name: "Mikon huone"
+        unit_of_measurement: "PM 2.5"
+        value_template: "{{ states.sensor.mikon_huone_pm25_statistics_mean.attributes.mean }}"
+      
+                                  #Statistics calculates my mean
+  - platform: statistics
+    entity_id: sensor.mikon_huone_pm25_raw
+    name: "mikon_huone_pm25_statistics"
+    hidden: true
